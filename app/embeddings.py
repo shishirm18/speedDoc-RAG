@@ -30,3 +30,19 @@ def create_vectorstore(chunks):
 
     return vector_store
 
+def load_vectorstore():
+    """Rather than processing the documents every time
+    Just load the index from the vector store
+    """
+    embeddings = get_embeddings()
+    vectorstore = FAISS.load_local(
+        "vectorstore/faiss_index",
+        embeddings,
+        allow_dangerous_deserialization=True
+    )
+    print("Vector store loaded from the disk")
+
+    return vectorstore 
+
+def vectorstore_exists():
+    return os.path.exists("vectorstore/faiss_index")

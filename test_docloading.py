@@ -6,4 +6,4 @@ docs = load_documents("data/uploads/test.txt")
 # print(docs)
 
 chunks = split_documents(docs)
-vector_store = create_vectorstore(chunks)
+# vector_store = create_vectorstore(chunks)
