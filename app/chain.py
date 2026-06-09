@@ -18,7 +18,7 @@ def build_qa_chain(retriever):
     )
 
     # Define strict prompt template
-    prompt_template = """
+    prompt_text = """
     You are a helpful customer service assistant for a local business.
     Use only the context provided below to answer the customers questions.
     If the answer is not found in the context, say:
@@ -31,9 +31,9 @@ def build_qa_chain(retriever):
     customer question = {question}
     Answer:"""
 
-    prompt = prompt_template(
-        template= prompt_template,
-        variable_inputs=["context", "question"]
+    prompt = PromptTemplate(
+        template= prompt_text,
+        input_variables=["context", "question"]
     )
 
     qa_chain = RetrievalQA.from_chain_type(
