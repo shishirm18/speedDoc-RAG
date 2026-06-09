@@ -18,7 +18,10 @@ speedDoc-RAG is a RAG (Retrieval Augmented Generation) based application which h
 * Step 2: Breaking down the document into smaller chunks (using RecursiveCharacterTextSplitting)
           |
           V
-* Step 3: Convert the smaller chunks into vector embeddings (using openAI embeddings model: text-embedding-3-small)
+* Step 3: Convert the smaller chunks into vector embeddings (using openAI embeddings model: text-embedding-3-small) and store in local vector store 
           |
           V
-* Step 4: 
+* Step 4: Retrieve the stored vectors
+          |
+          V
+* Step 5: Build the QA chain, which takes in current prompt, simantic searches the vector store and obtain the relevant chunks, with llm produces the result.
