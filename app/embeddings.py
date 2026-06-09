@@ -26,7 +26,6 @@ def create_vectorstore(chunks):
     # store all vectors in FAISS index in memory
     vector_store = FAISS.from_documents(chunks, embeddings)
     vector_store.save_local("vectorstore/faiss_index")
-    print("Vector store created and saved to disk!")
 
     return vector_store
 

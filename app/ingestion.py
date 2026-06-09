@@ -18,7 +18,6 @@ def load_documents(file_path: str):
         raise ValueError(f"Unsupported file type: {file_extension}. Accepted .pdf or .txt")
     
     documents = loader.load()
-    print(f"Number of documents {len(documents)}")
     return documents
 
 def split_documents(documents):
@@ -33,5 +32,4 @@ def split_documents(documents):
     )
     chunks = splitter.split_documents(documents)
 
-    print(f"The document is split into {len(chunks)} chunks")
     return chunks
