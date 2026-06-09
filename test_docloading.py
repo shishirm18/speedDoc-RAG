@@ -13,13 +13,13 @@ print("Step2: create vector store and save to disk")
 vector_store = load_vectorstore()
 
 print("Step3: retrieve top k, from this vector store")
-retriever = get_retriever(vector_store, k=3)
+retriever = get_retriever(vector_store, k=2)
 
 print("Step4: Build the RAG chain with retrieved vector store!")
 qa_chain = build_qa_chain(retriever)
-print(qa_chain)
 # print("Step5: Passing the question")
 # qa_chain
 
 result = qa_chain.invoke({"query": "What is the cost of student membership per month?"})
-print(result['result'])
+print(f"Result: {result['result']}")
+print(f"Source Documents: {result['source_documents']}")
